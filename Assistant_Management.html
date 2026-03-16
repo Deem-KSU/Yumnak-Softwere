@@ -1,31 +1,151 @@
-
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<title>Yumnak Header</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yumnak | Assistant Management</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet" href="StyleM.css">
 </head>
 
 <body>
-
-<header class="navbar">
-
+<header>
     <div class="logo">
         <img src="Image/Yumnak-Logo.png" alt="Yumnak Logo">
     </div>
-
-    <nav class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">My Requests</a>
-    </nav>
-
     <div class="logout">
         <button>
-            <span class="icon">↪</span>
+            <i class="fas fa-sign-out-alt"></i>
             Logout
         </button>
     </div>
-
 </header>
 
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-item">
+                <i class="fa-solid fa-chart-line"></i> Dashboard
+            </div>
+            <div class="sidebar-item">
+                <i class="fa-solid fa-clipboard-list"></i> Request Management
+            </div>
+            <div class="sidebar-item active">
+                <i class="fa-solid fa-users"></i> Assistant Management
+            </div>
+            <div class="sidebar-item">
+                <i class="fa-solid fa-clock-rotate-left"></i> View Requests
+            </div>
+            <div class="sidebar-item">
+                <i class="fa-solid fa-file-lines"></i> Weekly Performance Report
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <div class="headline">
+                <h1>Assistant Management</h1>
+                <p>Manage assistants, Monitor their availability.</p>
+            </div>
+
+            <div class="action-bar">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search assistant by name or specialization">
+                </div>
+                <button class="btn-add" id="addAssistantBtn"><i class="fa-solid fa-plus"></i> Add Assistant</button>
+            </div>
+
+            <div class="table-container">
+                <div class="table-header-title">All Assistants</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ASSISTANT</th>
+                            <th>CONTACT</th>
+                            <th>SPECIALIZATION</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://ui-avatars.com/api/?name=John+Smith&background=random" alt="Avatar">
+                                    <div>
+                                        <div class="name">John Smith</div>
+                                        <div class="id">ID: AS001</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="contact-info">
+                                    <span>+1 555-0123</span>
+                                    <span class="email">john.smith@yumnak.com</span>
+                                </div>
+                            </td>
+                            <td>Wheelchair Assistance</td>
+                            <td><button class="btn-delete"><i class="fa-solid fa-trash-can"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://ui-avatars.com/api/?name=Maria+Garcia&background=random" alt="Avatar">
+                                    <div>
+                                        <div class="name">Maria Garcia</div>
+                                        <div class="id">ID: AS002</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="contact-info">
+                                    <span>+1 555-0124</span>
+                                    <span class="email">maria.garcia@yumnak.com</span>
+                                </div>
+                            </td>
+                            <td>Language Support</td>
+                            <td><button class="btn-delete"><i class="fa-solid fa-trash-can"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://ui-avatars.com/api/?name=David+Chen&background=random" alt="Avatar">
+                                    <div>
+                                        <div class="name">David Chen</div>
+                                        <div class="id">ID: AS003</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="contact-info">
+                                    <span>+1 555-0125</span>
+                                    <span class="email">david.chen@yumnak.com</span>
+                                </div>
+                            </td>
+                            <td>Special Needs</td>
+                            <td><button class="btn-delete"><i class="fa-solid fa-trash-can"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+<script>
+    document.getElementById('addAssistantBtn').onclick = function() {
+        window.location.href = 'Add_Assistant.html';
+    };
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+
+    deleteButtons.forEach(button => {
+        button.onclick = function() {
+            const confirmDelete = confirm("Are You Sure You Want To Delete This Assistant?");
+            
+            if (confirmDelete) {
+                const row = this.closest('tr');
+                row.remove();
+                alert("The Assistant Deleted");
+            }
+        };
+    });
+</script>
 </body>
 </html>
