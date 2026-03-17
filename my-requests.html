@@ -76,10 +76,10 @@
         </div>
 
         <div class="card-actions">
-          <button type="button" class="btn details">
-            <i class="fa-regular fa-eye"></i>
-            View Details
-          </button>
+         <button type="button" class="btn details view-btn">
+  <i class="fa-regular fa-eye"></i>
+  View Details
+</button>
         </div>
       </div>
 
@@ -121,10 +121,10 @@
         </div>
 
         <div class="card-actions">
-          <button type="button" class="btn details">
-            <i class="fa-regular fa-eye"></i>
-            View Details
-          </button>
+          <button type="button" class="btn details view-btn">
+  <i class="fa-regular fa-eye"></i>
+  View Details
+</button>
           <button type="button" class="btn cancel">
             <i class="fa-solid fa-xmark"></i>
             Cancel
@@ -170,10 +170,10 @@
         </div>
 
         <div class="card-actions">
-          <button type="button" class="btn details">
-            <i class="fa-regular fa-eye"></i>
-            View Details
-          </button>
+         <button type="button" class="btn details view-btn">
+  <i class="fa-regular fa-eye"></i>
+  View Details
+</button>
           <button type="button" class="btn edit">
             <i class="fa-regular fa-pen-to-square"></i>
             Edit
@@ -224,10 +224,10 @@
         </div>
 
         <div class="card-actions">
-          <button type="button" class="btn details">
-            <i class="fa-regular fa-eye"></i>
-            View Details
-          </button>
+         <button type="button" class="btn details view-btn">
+  <i class="fa-regular fa-eye"></i>
+  View Details
+</button>
         </div>
       </div>
 
@@ -271,14 +271,13 @@
   </footer>
 <script>
   const cancelButtons = document.querySelectorAll(".btn.cancel");
+  const viewButtons = document.querySelectorAll(".view-btn");
 
   cancelButtons.forEach((button) => {
     button.addEventListener("click", function () {
-
       const confirmCancel = confirm("Are you sure you want to cancel this request?");
 
       if (confirmCancel) {
-
         const card = this.closest(".card");
         const status = card.querySelector(".status");
 
@@ -293,12 +292,18 @@
           editButton.remove();
         }
 
-        
         alert("Request cancelled successfully");
       }
     });
   });
+
+  viewButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      window.location.href = "Request-Details-U.html";
+    });
+  });
 </script>
+
 
 </body>
 </html>
