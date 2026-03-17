@@ -11,18 +11,36 @@ body {
 }
 
 header {
-  height: 78px;
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 70px;
-  border-bottom: 1px solid #eee7de;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #ddd;
 }
 
 .logo img {
-  height: 42px;
-  object-fit: contain;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+
+.logout button {
+    background: #8B6B4A;    
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
+}
+
+.logout button:hover {
+    background: #755f47;
 }
 
 nav {
@@ -43,14 +61,6 @@ nav a {
 nav a.active {
   color: #9a7753;
   border-bottom: 2px solid #9a7753;
-}
-
-.logout button {
-  background: transparent;
-  border: none;
-  color: #5d5b58;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 .container {
@@ -145,10 +155,17 @@ h1 {
 }
 
 .label {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 12px;
   color: #9a948f;
   margin-bottom: 5px;
+}
+
+.label i {
+  color: #9a7753;
+  font-size: 13px;
 }
 
 .details p {
@@ -172,6 +189,10 @@ h1 {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.btn i {
+  margin-right: 6px;
 }
 
 .btn.details {
@@ -204,7 +225,90 @@ h1 {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
+.add-btn i {
+  margin-right: 8px;
+}
 
+.footer {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 40px 60px;
+  border-top: 1px solid #e2e8f0;
+  margin-top: auto;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+.footer-section {
+  flex: 1;
+}
+
+.footer-section h4 {
+  color: #8b6b4a;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  color: #5f5f5f;
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #5f5f5f;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #8b6b4a;
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #8b6b4a;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  transform: translateY(-3px);
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 25px;
+  margin-top: 25px;
+  border-top: 1px solid #f0f0f0;
+  font-size: 13px;
+  color: #8b6b4a;
+}
 
 @media (max-width: 1150px) {
   .container {
@@ -242,86 +346,4 @@ h1 {
   h1 {
     font-size: 42px;
   }
-}
-.footer {
-    background-color: #FFFFFF;
-    width: 100%;
-    padding: 40px 60px;
-    border-top: 1px solid #E2E8F0;
-    margin-top: auto; 
-    box-sizing: border-box;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 50px;
-}
-
-.footer-section {
-    flex: 1;
-}
-
-.footer-section h4 {
-    color: #8B6B4A; 
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.footer-section p {
-    font-size: 14px;
-    color: #5F5F5F;
-    line-height: 1.6;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: #5F5F5F;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.footer-links a:hover {
-    color: #8B6B4A; 
-    text-decoration: underline;
-}
-
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.social-icons a {
-    color: #8B6B4A;
-    font-size: 20px;
-    transition: 0.3s;
-}
-
-.social-icons a:hover {
-    transform: translateY(-3px);
-    opacity: 0.8;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 25px;
-    margin-top: 25px;
-    border-top: 1px solid #F0F0F0;
-    font-size: 13px;
-    color: #8B6B4A;
-    
 }
