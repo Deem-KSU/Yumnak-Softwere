@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     
   <header>
     <div class="logo">
@@ -40,10 +39,14 @@
 
       <div class="card">
         <div class="card-info">
-          <div class="card-header">
-            <h3>Dubai International Airport</h3>
-            <span class="status completed">Completed</span>
-          </div>
+         <div class="card-header">
+  <div class="airport-name">
+    <i class="fa-solid fa-building"></i>
+    <h3>King Khalid International Airport</h3>
+  </div>
+
+  <span class="status completed">Completed</span>
+</div>
 
           <div class="details">
             <div>
@@ -59,7 +62,7 @@
                 <i class="fa-solid fa-wheelchair"></i>
                 Assistance Type
               </span>
-              <p>Wheelchair</p>
+              <p>Wheelchair Assistance</p>
             </div>
 
             <div>
@@ -83,7 +86,10 @@
       <div class="card">
         <div class="card-info">
           <div class="card-header">
-            <h3>King Khalid International Airport</h3>
+            <div class="airport-name">
+              <i class="fa-solid fa-building"></i>
+              <h3>King Fahd International Airport</h3>
+            </div>
             <span class="status accepted">Accepted</span>
           </div>
 
@@ -98,10 +104,10 @@
 
             <div>
               <span class="label">
-                <i class="fa-solid fa-hand-holding-medical"></i>
+             <i class="fa-solid fa-eye"></i>
                 Assistance Type
               </span>
-              <p>Medical Support</p>
+              <p>Visual Guidance Support</p>
             </div>
 
             <div>
@@ -129,7 +135,10 @@
       <div class="card">
         <div class="card-info">
           <div class="card-header">
-            <h3>Sharjah International Airport</h3>
+            <div class="airport-name">
+    <i class="fa-solid fa-building"></i>
+              <h3>King Abdulaziz International Airport</h3>
+            </div>
             <span class="status pending">Pending</span>
           </div>
 
@@ -144,10 +153,10 @@
 
             <div>
               <span class="label">
-                <i class="fa-solid fa-suitcase"></i>
+               <i class="fa-solid fa-ear-listen"></i>
                 Assistance Type
               </span>
-              <p>Luggage Help</p>
+              <p>Hearing Assistance Support</p>
             </div>
 
             <div>
@@ -179,7 +188,11 @@
       <div class="card">
         <div class="card-info">
           <div class="card-header">
-            <h3>Al Maktoum International Airport</h3>
+            <div class="airport-name">
+    <i class="fa-solid fa-building"></i>
+    
+              <h3>Prince Mohammad Bin Abdulaziz International Airport</h3>
+            </div>
             <span class="status rejected">Rejected</span>
           </div>
 
@@ -256,7 +269,36 @@
       &copy; 2026 Yumnak Platform. All rights reserved.
     </div>
   </footer>
+<script>
+  const cancelButtons = document.querySelectorAll(".btn.cancel");
 
-  <script src="js/script.js"></script>
+  cancelButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+
+      const confirmCancel = confirm("Are you sure you want to cancel this request?");
+
+      if (confirmCancel) {
+
+        const card = this.closest(".card");
+        const status = card.querySelector(".status");
+
+        status.textContent = "Cancelled";
+        status.classList.remove("pending", "accepted");
+        status.classList.add("cancelled");
+
+        this.remove();
+
+        const editButton = card.querySelector(".btn.edit");
+        if (editButton) {
+          editButton.remove();
+        }
+
+        
+        alert("Request cancelled successfully");
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
