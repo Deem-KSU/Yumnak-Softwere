@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yumnak | Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="StyleR.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="Image/Yumnak-Logo.png" alt="Yumnak Logo">
+    </div>
+    <div class="logout">
+      <button type="button">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+      </button>
+    </div>
+  </header>
+
+ <div class="admin-container">
+    <aside class="sidebar">
+      <a href="#" class="sidebar-item active">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class="fa-solid fa-clipboard-list"></i> Request Management
+      </a>
+      <a href="Assistant_Management.html" class="sidebar-item">
+        <i class="fa-solid fa-users"></i> Assistant Management
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class="fa-solid fa-clock-rotate-left"></i> View Requests
+      </a>
+      <a href="Weekly_Performance.html" class="sidebar-item">
+        <i class="fa-solid fa-file-lines"></i> Weekly Performance Report
+      </a>
+    </aside>
+ <main class="admin-main">
+    <section class="dashboard-section">
+  <h1 class="dashboard-title">Admin Dashboard</h1>
+  <p class="dashboard-subtitle">Monitor and manage airport assistance operations</p>
+
+  <div class="admin-profile-card">
+    <img class="manager-photo" src="https://ui-avatars.com/api/?name=Mohammed+Al-Rashid&background=d1d5db&color=111827&size=128" alt="Mohammed Al-Rashid">
+
+    <div class="manager-details">
+      <h2>Mohammed Al-Rashid</h2>
+
+      <div class="manager-contact-row">
+        <div class="manager-contact">
+          <div class="contact-icon-box">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div>
+            <span>Phone Number</span>
+            <p>+966 50 123 4567</p>
+          </div>
+        </div>
+
+        <div class="manager-contact">
+          <div class="contact-icon-box">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div>
+            <span>Email Address</span>
+            <p>mohammed.r@yumnak.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-cards">
+    <div class="stat-card">
+      <div class="stat-card-top">
+        <div class="stat-icon requests-icon">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+        <span class="stat-tag green-tag">+12%</span>
+      </div>
+      <h3>1,247</h3>
+      <p>Total Requests</p>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-card-top">
+        <div class="stat-icon pending-icon">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+        <span class="stat-tag orange-tag">Active</span>
+      </div>
+      <h3>38</h3>
+      <p>Pending Requests</p>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-card-top">
+        <div class="stat-icon completed-icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <span class="stat-tag green-tag">98.5%</span>
+      </div>
+      <h3>1,209</h3>
+      <p>Completed Requests</p>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-card-top">
+        <div class="stat-icon assistants-icon">
+          <i class="fa-solid fa-user-group"></i>
+        </div>
+        <span class="stat-tag blue-tag">24 Active</span>
+      </div>
+      <h3>32</h3>
+      <p>Total Assistants</p>
+    </div>
+  </div>
+</section>
+ </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-envelope"></i> support@yumnak.com</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section about-yumnak">
+        <h4>About Yumnak</h4>
+        <p>Your companion for a world without barriers, making every journey at the airport easier and more inclusive.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 Yumnak Platform. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
