@@ -30,10 +30,10 @@
   </header>
 
   <main class="details-container">
-    <h1 class="page-title">
+    <h2 class="page-title">
   <i class="fa-solid fa-arrow-left back-icon"></i>
   Request Details
-</h1>
+</h2>
 
     <p class="page-subtitle">
       View the full details and current status of your assistance request.
@@ -75,7 +75,7 @@
 
         <div>
           <span>Payment Status</span>
-          <p class="paid">
+          <p id="paid">
             <i class="fa-solid fa-check"></i>
             Paid
           </p>
@@ -84,7 +84,7 @@
         <div>
           <span>Assistance Type</span>
           <p>
-            <i class="fa-solid fa-wheelchair"></i>
+            <i class="fa-solid fa-wheelchair chairicon"></i>
             Wheelchair Assistance
           </p>
         </div>
@@ -95,12 +95,12 @@
         </div>
       </div>
 
-      <div class="notes">
-        <span>Extra Notes</span>
-        <p>
-          Please meet me at the arrival gate. I may need additional assistance with luggage.
-        </p>
-      </div>
+     <div class="notes">
+  <span class="notes-title">Extra Notes</span>
+  <p>
+    Please meet me at the arrival gate. I may need additional assistance with luggage.
+  </p>
+</div>
     </div>
 
     <div class="details-box">
@@ -159,17 +159,101 @@
       &copy; 2026 Yumnak Platform. All rights reserved.
     </div>
   </footer>
+  <div class="rating-modal" id="ratingModal">
+  <div class="rating-box">
+    <h3>Rate Your Experience</h3>
+
+    <div class="stars">
+      <i class="fa-regular fa-star" data-value="1"></i>
+      <i class="fa-regular fa-star" data-value="2"></i>
+      <i class="fa-regular fa-star" data-value="3"></i>
+      <i class="fa-regular fa-star" data-value="4"></i>
+      <i class="fa-regular fa-star" data-value="5"></i>
+    </div>
+
+    <textarea id="reviewText" placeholder="Write your review..."></textarea>
+
+    <div class="rating-actions">
+      <button type="button" class="btn submit-rating">Submit</button>
+      <button type="button" class="btn close-rating">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
 <script>
   const backBtn = document.querySelector(".btn.back");
   const backIcon = document.querySelector(".back-icon");
+  const rateBtn = document.querySelector(".btn.rate");
+
+  const modal = document.getElementById("ratingModal");
+  const stars = document.querySelectorAll(".stars i");
+  const submitBtn = document.querySelector(".submit-rating");
+  const closeBtn = document.querySelector(".close-rating");
+  const reviewText = document.getElementById("reviewText");
+
+  let selectedRating = 0;
 
   function goBack() {
     window.location.href = "my-requests.html";
   }
 
+  function resetRatingForm() {
+    selectedRating = 0;
+    reviewText.value = "";
+
+    stars.forEach((star) => {
+      star.classList.remove("fa-solid", "active");
+      star.classList.add("fa-regular");
+    });
+  }
+
   backBtn.addEventListener("click", goBack);
   backIcon.addEventListener("click", goBack);
-</script>
 
+  rateBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    resetRatingForm();
+  });
+
+  stars.forEach((star, index) => {
+    star.addEventListener("mouseover", () => {
+      stars.forEach((s, i) => {
+        s.classList.toggle("fa-solid", i <= index);
+        s.classList.toggle("fa-regular", i > index);
+        s.classList.toggle("active", i <= index);
+      });
+    });
+
+    star.addEventListener("click", () => {
+      selectedRating = index + 1;
+    });
+
+    star.addEventListener("mouseout", () => {
+      stars.forEach((s, i) => {
+        s.classList.toggle("fa-solid", i < selectedRating);
+        s.classList.toggle("fa-regular", i >= selectedRating);
+        s.classList.toggle("active", i < selectedRating);
+      });
+    });
+  });
+
+  submitBtn.addEventListener("click", () => {
+    if (selectedRating === 0) {
+      alert("Please select a rating");
+      return;
+    }
+
+    alert("Thank you for your feedback!");
+    modal.style.display = "none";
+    resetRatingForm();
+
+    rateBtn.style.display = "none";
+  });
+</script>
 </body>
 </html>

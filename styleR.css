@@ -448,33 +448,54 @@ h1 {
 }
 
 .details-grid span {
-  font-size: 13px;
+  font-size: 14px;
   color: #6B7280;
+ 
 }
 
 .details-grid p {
-  font-weight: 500;
-  color: #5F5F5F;
+font-weight: 400;
+  color: #111827;
+  font-size: 18px;
+  padding-top: 8px;
+}
+.chairicon {
+  color: #8B6B4A;
 }
 
 /* paid */
-.paid {
+#paid {
   background: #DCFCE7;
-  color: #15803D;
-  padding: 5px 10px;
-  border-radius: 10px;
-  display: inline-block;
+  color: #166534;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  width: fit-content;
+  
 }
 
 /* notes */
 .notes {
-  margin-top: 20px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #E5E7EB;
+  
+}
+
+.notes-title {
+  display: block;
+  font-size: 14px;
+  color: #6B7280;
+  margin-bottom: 10px;
 }
 
 .notes p {
-  background: #f4efe8;
-  padding: 15px;
+  background:  #F9FAFB; 
+  padding: 16px;
   border-radius: 10px;
+  color: #111827;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 /* assistant */
@@ -492,6 +513,8 @@ h1 {
 
 .assistant-name {
   font-weight: 600;
+  color: #111827;
+  padding: 5px 0px;
 }
 
 /* buttons */
@@ -519,4 +542,78 @@ h1 {
 .back-icon {
   cursor: pointer;
   margin-right: 8px;
+  color: #5F5F5F;
+  font-size: 20px;
+}
+.back-icon:hover {
+  color: #353434;
+}
+.rating-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.rating-box {
+  background: white;
+  width: 380px;
+  padding: 28px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.rating-box h3 {
+  color: #8B6B4A;
+  margin-bottom: 18px;
+}
+
+.stars {
+  margin-bottom: 18px;
+}
+
+.stars i {
+  font-size: 26px;
+  color: #D1D5DB;
+  cursor: pointer;
+  margin: 0 6px;
+  transition: 0.2s;
+}
+
+.stars i.active {
+  color: #FBBF24;
+}
+
+#reviewText {
+  width: 100%;
+  height: 90px;
+  padding: 12px;
+  border: 1px solid #D1D5DB;
+  border-radius: 10px;
+  resize: none;
+  font-size: 14px;
+  outline: none;
+}
+
+.rating-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.submit-rating {
+  background: #8B6B4A;
+  color: white;
+}
+
+.close-rating {
+  background: #F3F4F6;
+  color: #374151;
 }
