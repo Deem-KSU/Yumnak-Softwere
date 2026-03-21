@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yumnak</title>
+<link rel="stylesheet" href="StyleD.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+<header>
+    <div class="logo">
+        <img src="Image/Yumnak-Logo.png" alt="Yumnak Logo">
+    </div>
+    <div class="logout">
+        <button>
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+        </button>
+    </div>
+</header>
+
+<section class="signup-section">
+  <div class="signup-container">
+
+    <div class="signup-left">
+      <div class="left-content">
+        <img src="Image/Yumnak-Logo.png" alt="Yumnak Logo" class="signup-image">
+
+        <h2>Join Yumnak</h2>
+        <p>Create your account to request airport assistance easily.</p>
+
+        
+      </div>
+    </div>
+
+    <div class="signup-right">
+      <h2>Create Account</h2>
+      <p class="subtitle">Enter your details to get started</p>
+
+      <form class="signup-form" id="signupForm" novalidate>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <div class="input-box">
+            <i class="fa-regular fa-user"></i>
+            <input type="text" id="username" placeholder="Enter your username">
+          </div>
+          <small class="field-error" id="usernameError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-box">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="email" id="email" placeholder="Enter your email">
+          </div>
+          <small class="field-error" id="emailError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <div class="input-box">
+            <i class="fa-solid fa-phone"></i>
+            <input type="text" id="phone" placeholder="Enter your phone number">
+          </div>
+          <small class="field-error" id="phoneError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <div class="input-box">
+            <input type="date" id="dob">
+          </div>
+          <small class="field-error" id="dobError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-box password-box">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" placeholder="Enter your password">
+            <i class="fa-regular fa-eye eye-icon" id="togglePassword"></i>
+          </div>
+          <small class="field-error" id="passwordError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-box password-box">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="confirmPassword" placeholder="Confirm your password">
+            <i class="fa-regular fa-eye eye-icon" id="toggleConfirmPassword"></i>
+          </div>
+          <small class="field-error" id="confirmPasswordError"></small>
+        </div>
+
+        <div class="form-message error-message" id="formError"></div>
+        <div class="form-message success-message" id="formSuccess"></div>
+
+        <button type="submit" class="create-btn">Create Account</button>
+
+        <p class="signin-text">
+          Already have an account? <a href="LogIn.html">Sign In</a>
+        </p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p><i class="fas fa-envelope"></i> support@yumnak.com</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+        
+        </div>
+
+        <div class="footer-section about-yumnak">
+            <h4>About Yumnak</h4>
+            <p>Your companion for a world without barriers, making every journey at the airport easier and more inclusive.</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        &copy; 2026 Yumnak Platform. All rights reserved.
+    </div>
+</footer>
+
+<script src="scriptD.js"></script>
+</body>
+</html>
