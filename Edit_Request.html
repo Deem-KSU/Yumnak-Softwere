@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yumnak | Edit Request</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="Image/Yumnak-Logo.png" alt="Yumnak Logo">
+  </div>
+
+  <div class="logout">
+    <button>
+      <i class="fas fa-sign-out-alt"></i>
+      Logout
+    </button>
+  </div>
+</header>
+
+<main class="add-request-page">
+  <section class="add-request-form-section">
+    <div class="add-request-form-card">
+
+      <div class="add-request-form-header">
+        <h1 class="add-request-page-title">Edit Assistance Request</h1>
+        <p class="add-request-form-subtitle">
+          Update the request details before saving your changes.
+        </p>
+      </div>
+
+      <form class="add-request-form" id="addRequestForm">
+
+        <div class="add-request-field">
+          <label for="airport">Airport <span>*</span></label>
+          <div class="add-request-input-with-icon">
+            <i class="fas fa-plane-departure"></i>
+            <input type="text" id="airport" value="King Khalid International Airport" readonly>
+          </div>
+        </div>
+
+        <div class="add-request-field">
+          <label for="gate">Entrance Gate <span>*</span></label>
+          <div class="add-request-input-with-icon">
+            <i class="fas fa-door-open"></i>
+            <input type="text" id="gate" value="Terminal 2 - Gate 3" placeholder="Enter terminal and gate (e.g. Terminal 2 - Gate 3)">
+          </div>
+        </div>
+
+        <div class="add-request-field">
+          <label for="type">Assistance Type <span>*</span></label>
+          <div class="add-request-input-with-icon">
+            <i class="fas fa-hands-helping"></i>
+            <select id="type">
+              <option value="" disabled>Select assistance type</option>
+              <option value="Hearing Assistance">Hearing Assistance</option>
+              <option value="Visual Assistance" selected>Visual Assistance</option>
+              <option value="Mobility Assistance">Mobility Assistance</option>
+              <option value="Cognitive Assistance">Cognitive Assistance</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="add-request-row">
+          <div class="add-request-field">
+            <label for="date">Preferred Date <span>*</span></label>
+            <div class="add-request-input-with-icon">
+              <i class="fas fa-calendar-alt"></i>
+              <input type="date" id="date" value="2026-03-28">
+            </div>
+          </div>
+
+          <div class="add-request-field">
+            <label for="time">Preferred Time <span>*</span></label>
+            <div class="add-request-input-with-icon">
+              <i class="fas fa-clock"></i>
+              <input type="time" id="time" value="14:30">
+            </div>
+          </div>
+        </div>
+
+        <div class="add-request-field">
+          <label for="note">Extra Note(Optional)</label>
+          <div class="add-request-textarea-with-icon">
+            <i class="fas fa-pen"></i>
+            <textarea id="note" rows="5" placeholder="Add any additional details to help us assist you...">I may need help reaching the departure area.</textarea>
+          </div>
+        </div>
+
+        <p class="add-request-error-message" id="errorMessage">
+          Please fill in all required fields.
+        </p>
+
+        <div class="add-request-actions">
+          <button type="button" class="add-request-cancel-btn" id="cancelBtn">
+            <i class="fas fa-xmark"></i>
+            Cancel
+          </button>
+
+          <button type="submit" class="add-request-submit-btn">
+            <i class="fas fa-floppy-disk"></i>
+            Save Changes
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-envelope"></i> support@yumnak.com</p>
+
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Dashboard</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section about-yumnak">
+      <h4>About Yumnak</h4>
+      <p>Your companion for a world without barriers, making every journey at the airport easier and more inclusive.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2026 Yumnak Platform. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById("addRequestForm");
+  const airportInput = document.getElementById("airport");
+  const gateInput = document.getElementById("gate");
+  const typeInput = document.getElementById("type");
+  const dateInput = document.getElementById("date");
+  const timeInput = document.getElementById("time");
+  const noteInput = document.getElementById("note");
+  const errorMessage = document.getElementById("errorMessage");
+  const cancelBtn = document.getElementById("cancelBtn");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const gate = gateInput.value.trim();
+    const type = typeInput.value;
+    const date = dateInput.value;
+    const time = timeInput.value;
+
+    if (gate === "" || type === "" || date === "" || time === "") {
+      errorMessage.style.display = "block";
+      return;
+    }
+
+    const confirmUpdate = confirm("Are you sure you want to save these changes?");
+
+    if (!confirmUpdate) {
+      return;
+    }
+
+    errorMessage.style.display = "none";
+
+    const updatedRequestData = {
+      airport: airportInput.value,
+      entranceGate: gate,
+      assistanceType: type,
+      preferredDate: date,
+      preferredTime: time,
+      extraNote: noteInput.value.trim()
+    };
+
+
+    alert("Your request has been updated successfully.");
+    window.location.href = "my_requests.html";
+  });
+
+  cancelBtn.addEventListener("click", function () {
+    window.location.href = "my_requests.html"
+  });
+</script>
+
+</body>
+</html>
