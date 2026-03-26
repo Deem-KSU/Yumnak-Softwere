@@ -1,0 +1,129 @@
+<!--Admin header + sidebar -->
+
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yumnak | Request Management </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styleF.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="Image/Yumnak-Logo.png" alt="Yumnak Logo">
+        </div>
+        <div class="logout">
+            <button>
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <a href="#" class="sidebar-item">
+                <i class="fa-solid fa-chart-line"></i> Dashboard
+            </a>
+            <a href="#" class="sidebar-item active">
+                <i class="fa-solid fa-clipboard-list"></i> Request Management
+            </a>
+            <a href="Assistant_Management.html" class="sidebar-item">
+                <i class="fa-solid fa-users"></i> Assistant Management
+            </a>
+            <a href="#" class="sidebar-item">
+                <i class="fa-solid fa-clock-rotate-left"></i> View Requests
+            </a>
+            <a href="#" class="sidebar-item">
+                <i class="fa-solid fa-file-lines"></i> Weekly Performance Report
+            </a>
+        </aside>
+
+        <!--main container-->
+        <main class="main-content">
+            <div class="headline">
+                <h1>Request management</h1>
+                <p>manage assistance requests.</p>
+            </div>
+            <div class="table-container">
+                <div class="table-header-title">Recent Requests</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>REQUEST ID</th>
+                            <th>AIRPORT</th>
+                            <th>ASSISTANCE TYPE</th>
+                            <th>DATE</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="reqNO">1847</td>
+                            <td>King Khalid International Airport</td>
+                            <td>Wheelchair Assistance</td>
+                            <td>Jan 15, 2026</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="handeling.html">Handel</a></td>
+                        </tr>
+                        <tr>
+                            <td class="reqNO">1848</td>
+                            <td>Taif International Airport</td>
+                            <td>Visual Guidance Support</td>
+                            <td>Jan 15, 2026</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="handeling.html">Handel</a></td>
+                        </tr>
+                        <tr>
+                            <td class="reqNO">1849</td>
+                            <td>King Abdulaziz International Airport</td>
+                            <td>Hearing Assistance Support</td>
+                            <td>Jan 15, 2026</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="handeling.html">Handel</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+
+        <!--footer-->
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope"></i> support@yumnak.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section about-yumnak">
+                <h4>About Yumnak</h4>
+                <p>Your companion for a world without barriers, making every journey at the airport easier and more
+                    inclusive.</p>
+            </div>
+        </div>
+        
+
+        <div class="footer-bottom">
+            &copy; 2026 Yumnak Platform. All rights reserved.
+        </div>
+    </footer>
