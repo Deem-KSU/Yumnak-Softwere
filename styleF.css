@@ -6,7 +6,9 @@ body {
     background: #F5EFE8;
     color: #5F5F5F;
 }
-
+.headline h1{
+    color: #000000;
+}
 header {
     display: flex;
     align-items: center;
