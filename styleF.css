@@ -536,3 +536,38 @@ tbody tr td a {
     gap: 6px;
     cursor: pointer;
 }
+
+/* empty state: view-details */
+
+.empty-state-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 60px 20px; 
+    text-align: center;
+}
+
+.empty-icon {
+    height: 48px;
+    width: 48px;
+    color: #CBD5E1;
+    margin-bottom: 16px;
+}
+
+.empty-title {
+    color: #5F5F5F;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+}
+
+.empty-subtitle {
+    color: #94A3B8;
+    font-size: 13px;
+    margin: 0;
+}
+
+.empty-state-container svg{
+    height: 200px;
+}

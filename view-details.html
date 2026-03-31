@@ -1,0 +1,216 @@
+<!--Admin header + sidebar -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yumnak | Request Management </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styleF.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="Image/Yumnak-Logo.png" alt="Yumnak Logo">
+        </div>
+        <div class="logout">
+            <button>
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <a href="Admin-Dashboard.html" class="sidebar-item">
+                <i class="fa-solid fa-chart-line"></i> Dashboard
+            </a>
+            <a href="request-management.html" class="sidebar-item active">
+                <i class="fa-solid fa-clipboard-list"></i> Request Management
+            </a>
+            <a href="Assistant_Management.html" class="sidebar-item">
+                <i class="fa-solid fa-users"></i> Assistant Management
+            </a>
+            <a href="view-requests.html" class="sidebar-item">
+                <i class="fa-solid fa-clock-rotate-left"></i> View Requests
+            </a>
+            <a href="Weekly_Performance.html" class="sidebar-item">
+                <i class="fa-solid fa-file-lines"></i> Weekly Performance Report
+            </a>
+        </aside>
+
+        <!--main container-->
+        <main class="main-content">
+            <div class="headline">
+                <h1>Request Details</h1>
+                <p>Review full traveler request information and assign a suitable assistant</p>
+            </div>
+            <div class="cards-row"> <!---->
+                <div class="small-table-container">
+                    <div class="small-table-header-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd"
+                                d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z"
+                                clip-rule="evenodd" />
+                            <path
+                                d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
+                        </svg>
+                        Request Summary
+                    </div>
+                    <table class="detail-table">
+                        <tbody>
+                            <tr>
+                                <th>Reques ID:</th>
+                                <td>1848</td>
+                            </tr>
+                            <tr>
+                                <th>Reques Status:</th>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <th>Payment Status:</th>
+                                <td><span class="status paid">Paid</span></td>
+                            </tr>
+                            <tr>
+                                <th>Date Submitted:</th>
+                                <td>Jan 15, 2026 - 10:30 AM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="small-table-container">
+                    <div class="small-table-header-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd"
+                                d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Traveler Information
+                    </div>
+                    <table class="detail-table">
+                        <tbody>
+                            <tr>
+                                <th>Full Name:</th>
+                                <td>Leen Mohammad</td>
+                            </tr>
+                            <tr>
+                                <th>Age:</th>
+                                <td>26 years</td>
+                            </tr>
+                            <tr>
+                                <th>Travlere Type:</th>
+                                <td><span class="status adult">Adult</span></td>
+                            </tr>
+                            <tr>
+                                <th>Phone Number:</th>
+                                <td>+966 55 555 5555</td>
+                            </tr>
+                            <tr>
+                                <th>Email Address:</th>
+                                <td>Lennnnnnnnn@gmail.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="table-container full-width-card">
+                <div class="small-table-header-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Assistance Request Details
+                </div>
+                <dl class="details-grid">
+                    <div class="detail-block">
+                        <dt>Airport:</dt>
+                        <dd>Taif International Airport</dd>
+                    </div>
+                    <div class="detail-block">
+                        <dt>Preferred Time:</dt>
+                        <dd>2:00 PM</dd>
+                    </div>
+                    <div class="detail-block">
+                        <dt>Entrance Gate:</dt>
+                        <dd>Terminal 4 - Gate B</dd>
+                    </div>
+                    <div class="detail-block">
+                        <dt>Extra Note:</dt>
+                        <dd>Requires assistance from check-in to boarding gate. Traveling with one carry-on bag.</dd>
+                    </div>
+                    <div class="detail-block border-none">
+                        <dt>Assistance Type:</dt>
+                        <dd><span class="badge purple">Wheelchair Assistance</span></dd>
+                    </div>
+                    <div class="detail-block border-none">
+                        <dt>Preferred date:</dt>
+                        <dd>March 20, 2026</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="table-container full-width-card">
+                <div class="small-table-header-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2.25a5.25 5.25 0 0 0-5.25 5.25c0 2.5 1.764 4.584 4.122 5.144a1.86 1.86 0 0 1 2.256 0c2.358-.56 4.122-2.644 4.122-5.144A5.25 5.25 0 0 0 12 2.25Z" />
+                        <path
+                            d="M2.261 18.221a1.875 1.875 0 0 1 1.77-1.471h15.938a1.875 1.875 0 0 1 1.77 1.471 13.5 13.5 0 0 1-19.478 0Z" />
+                    </svg>
+                    Assigned Assistant
+                </div>
+
+                <div class="empty-state-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                        <path fill-rule="evenodd"
+                            d="m6.72 5.66 11.62 11.62A8.25 8.25 0 0 0 6.72 5.66Zm10.56 12.68L5.66 6.72a8.25 8.25 0 0 0 11.62 11.62ZM5.105 5.106c3.807-3.808 9.98-3.808 13.788 0 3.808 3.807 3.808 9.98 0 13.788-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788Z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                    <p class="empty-title">No assistant assigned yet.</p>
+                    <p class="empty-subtitle">Please assign a suitable assistant from the list below.</p>
+                </div>
+            </div>
+        </main>
+
+
+        <!--footer-->
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope"></i> support@yumnak.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="Admin-Dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section about-yumnak">
+                <h4>About Yumnak</h4>
+                <p>Your companion for a world without barriers, making every journey at the airport easier and more
+                    inclusive.</p>
+            </div>
+        </div>
+
+
+        <div class="footer-bottom">
+            &copy; 2026 Yumnak Platform. All rights reserved.
+        </div>
+    </footer>
+</body>
