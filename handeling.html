@@ -26,19 +26,19 @@
 
     <div class="container">
         <aside class="sidebar">
-            <a href="#" class="sidebar-item">
+            <a href="Admin-Dashboard.html" class="sidebar-item">
                 <i class="fa-solid fa-chart-line"></i> Dashboard
             </a>
-            <a href="#" class="sidebar-item active">
+            <a href="request-management.html" class="sidebar-item active">
                 <i class="fa-solid fa-clipboard-list"></i> Request Management
             </a>
             <a href="Assistant_Management.html" class="sidebar-item">
                 <i class="fa-solid fa-users"></i> Assistant Management
             </a>
-            <a href="#" class="sidebar-item">
+            <a href="view-requests.html" class="sidebar-item">
                 <i class="fa-solid fa-clock-rotate-left"></i> View Requests
             </a>
-            <a href="#" class="sidebar-item">
+            <a href="Weekly_Performance.html" class="sidebar-item">
                 <i class="fa-solid fa-file-lines"></i> Weekly Performance Report
             </a>
         </aside>
@@ -46,7 +46,7 @@
         <!--main container-->
         <main class="main-content">
             <div class="headline">
-                <h1>Reques Details</h1>
+                <h1>Request Details</h1>
                 <p>Review full traveler request information and assign a suitable assistant</p>
             </div>
             <div class="cards-row"> <!---->
@@ -73,7 +73,7 @@
                             </tr>
                             <tr>
                                 <th>Payment Status:</th>
-                                <td class="status paid">paid</td>
+                                <td><span class="status paid">Paid</span></td>
                             </tr>
                             <tr>
                                 <th>Date Submitted:</th>
@@ -91,7 +91,7 @@
                         </svg>
                         Traveler Information
                     </div>
-                    <table>
+                    <table class="detail-table">
                         <tbody>
                             <tr>
                                 <th>Full Name:</th>
@@ -103,11 +103,11 @@
                             </tr>
                             <tr>
                                 <th>Travlere Type:</th>
-                                <td class="status adult">Adult</td>
+                                <td><span class="status adult">Adult</span></td>
                             </tr>
                             <tr>
                                 <th>Phone Number:</th>
-                                <td>+1 (555) 234-5678</td>
+                                <td>+966 55 555 5555</td>
                             </tr>
                             <tr>
                                 <th>Email Address:</th>
@@ -126,32 +126,32 @@
                     </svg>
                     Assistance Request Details
                 </div>
-                <div class="details-grid">
+                <dl class="details-grid">
                     <div class="detail-block">
-                        <label>Airport:</label>
-                        <p>Taif International Airport</p>
+                        <dt>Airport:</dt>
+                        <dd>Taif International Airport</dd>
                     </div>
                     <div class="detail-block">
-                        <label>Preferred Time:</label>
-                        <p>2:00 PM</p>
+                        <dt>Preferred Time:</dt>
+                        <dd>2:00 PM</dd>
                     </div>
                     <div class="detail-block">
-                        <label>Entrance Gate:</label>
-                        <p>Terminal 4 - Gate B</p>
+                        <dt>Entrance Gate:</dt>
+                        <dd>Terminal 4 - Gate B</dd>
                     </div>
                     <div class="detail-block">
-                        <label>Extra Note:</label>
-                        <p>Requires assistance from check-in to boarding gate. Traveling with one carry-on bag.</p>
+                        <dt>Extra Note:</dt>
+                        <dd>Requires assistance from check-in to boarding gate. Traveling with one carry-on bag.</dd>
                     </div>
                     <div class="detail-block border-none">
-                        <label>Assistance Type:</label>
-                        <p><span class="badge purple">Wheelchair Assistance</span></p>
+                        <dt>Assistance Type:</dt>
+                        <dd><span class="badge purple">Wheelchair Assistance</span></dd>
                     </div>
                     <div class="detail-block border-none">
-                        <label>Preferred date:</label>
-                        <p>March 20, 2024</p>
+                        <dt>Preferred date:</dt>
+                        <dd>March 20, 2026</dd>
                     </div>
-                </div>
+                </dl>
             </div>
 
             <div class="table-container full-width-card">
@@ -168,10 +168,10 @@
                 <div class="assistant-cards-wrapper">
                     <div class="assistant-card">
                         <div class="assistant-header">
-                            <div class="avatar" style="background-color: #CBD5E1;"></div> <!--STYLING-->
+                            <img src="https://ui-avatars.com/api/?name=M+S&background=random" alt="Mashal's image">
                             <div class="assistant-info">
                                 <h4>Mashal Saud</h4>
-                                <span class="ast-id">0123456789</span>
+                                <span class="ast-id">3</span>
                                 <span class="badge purple">Wheelchair Specialist</span>
                             </div>
                         </div>
@@ -193,17 +193,22 @@
 
                     <div class="assistant-card">
                         <div class="assistant-header">
-                            <div class="avatar" style="background-color: #94A3B8;"></div>
+                            <img src="https://ui-avatars.com/api/?name=M+U&background=random" alt="Maryam's image">
                             <div class="assistant-info">
-                                <h4>Lamia Alghamdi</h4>
-                                <span class="ast-id">0123456789</span>
+                                <h4>Maryam Usama</h4>
+                                <span class="ast-id">5</span>
                                 <span class="badge purple">Wheelchair Specialist</span>
                             </div>
                         </div>
                         <div class="card-stats">
                             <div class="stat-row"><span>Status:</span> <span class="status paid">Available</span></div>
                             <div class="stat-row"><span>Rating:</span> <span class="val">
-                                    ★
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="size-6">
+                                        <path fill-rule="evenodd"
+                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
                                     4.8</span></div>
                             <div class="stat-row"><span>Completed:</span> <span class="val">95 requests</span></div>
                         </div>
@@ -211,16 +216,23 @@
                     </div>
                     <div class="assistant-card">
                         <div class="assistant-header">
-                            <div class="avatar" style="background-color: #64748B;"></div>
+                            <img src="https://ui-avatars.com/api/?name=D+C&background=random" alt="David's image">
                             <div class="assistant-info">
                                 <h4>David Chen</h4>
-                                <span class="ast-id">ID: AST-2024-0112</span>
+                                <span class="ast-id">8</span>
                                 <span class="badge purple">Wheelchair Specialist</span>
                             </div>
                         </div>
                         <div class="card-stats">
                             <div class="stat-row"><span>Status:</span> <span class="status paid">Available</span></div>
-                            <div class="stat-row"><span>Rating:</span> <span class="val">⭐ 4.7</span></div>
+                            <div class="stat-row"><span>Rating:</span> <span class="val">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="size-6">
+                                        <path fill-rule="evenodd"
+                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                4.7</span></div>
                             <div class="stat-row"><span>Completed:</span> <span class="val">83 requests</span></div>
                         </div>
                         <button class="btn-select">Select</button>
@@ -267,7 +279,7 @@
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
                     <li><a href="#">Sitemap</a></li>
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="Admin-Dashboard.html">Dashboard</a></li>
                 </ul>
             </div>
 
