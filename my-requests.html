@@ -174,7 +174,7 @@
   <i class="fa-regular fa-eye"></i>
   View Details
 </button>
-          <button type="button" class="btn edit">
+          <button type="button" class="btn edit edit-btn">
             <i class="fa-regular fa-pen-to-square"></i>
             Edit
           </button>
@@ -303,7 +303,10 @@
     });
   });
 
-  
+
+  document.querySelector(".edit-btn").onclick = function() {
+    window.location.href = "Edit_Request.html";
+  }
 </script>
 
 
