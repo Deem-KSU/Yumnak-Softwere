@@ -797,6 +797,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .fa-apple-pay {
     color: #000000; 
 }
+#cardFieldsWrapper {
+    display: block;
+}
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
     .payment-page {
