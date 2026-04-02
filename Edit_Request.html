@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yumnak | Edit Request</title>
 
-  <link rel="stylesheet" href="styleS.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -41,8 +41,26 @@
           <label for="airport">Airport <span>*</span></label>
           <div class="add-request-input-with-icon">
             <i class="fas fa-plane-departure"></i>
-            <input type="text" id="airport" value="King Khalid International Airport" readonly>
-          </div>
+        <select id="airport">
+         <option value="King Khalid International Airport" selected>
+               King Khalid International Airport
+        </option>
+        <option value="King Abdulaziz International Airport">
+              King Abdulaziz International Airport
+       </option>
+       <option value="King Fahd International Airport">
+              King Fahd International Airport
+       </option>
+       <option value="Prince Mohammad bin Abdulaziz Airport">
+           Prince Mohammad bin Abdulaziz Airport
+      </option>
+	  <option value="Abha International Airport">
+           Abha International Airport
+      </option>
+      <option value="Prince Sultan bin Abdulaziz Airport">
+           Prince Sultan bin Abdulaziz Airport
+      </option>
+       </select>          </div>
         </div>
 
         <div class="add-request-field">
