@@ -156,10 +156,9 @@ if (loginForm) {
   const loginUsername = document.getElementById("loginUsername");
   const loginPassword = document.getElementById("loginPassword");
   const loginError = document.getElementById("loginError");
+  const adminBtn = document.getElementById("adminLoginBtn");
 
-  loginForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
+  function validateLogin() {
     clearMultipleErrors(["loginUsernameError", "loginPasswordError"]);
     loginError.textContent = "";
     loginError.style.display = "none";
@@ -179,19 +178,26 @@ if (loginForm) {
     if (!isValid) {
       loginError.textContent = "Please fill in all required fields";
       loginError.style.display = "block";
-      return;
     }
 
-    // شكليًا فقط: إذا عبا الحقول ينتقل
-loginForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  if (loginUsername.value !== "" && loginPassword.value !== "") {
-    window.location.href = "User-Dashboard.html";
+    return isValid;
   }
-});
 
-});
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (validateLogin()) {
+      window.location.href = "User-Dashboard.html";
+    }
+  });
+
+  if (adminBtn) {
+    adminBtn.addEventListener("click", function () {
+      if (validateLogin()) {
+        window.location.href = "Admin-Dashboard.html";
+      }
+    });
+  }
 
   const loginTogglePassword = document.getElementById("loginTogglePassword");
 
@@ -204,7 +210,7 @@ loginForm.addEventListener("submit", function (e) {
   }
 }
 
-
 function goToAddRequest() {
   window.location.href = "Airport_Selection.html";
 }
+
