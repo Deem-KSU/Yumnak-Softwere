@@ -12,17 +12,22 @@
 <body>
 
 <header>
-  <div class="logo">
-    <img src="Image/Yumnak-Logo.png" alt="Yumnak Logo">
-  </div>
+    <div class="logo">
+      <img src="Image/Yumnak-Logo.png" alt="Yumnak Logo">
+    </div>
 
-  <div class="logout">
-    <button>
-      <i class="fas fa-sign-out-alt"></i>
-      Logout
-    </button>
-  </div>
-</header>
+    <nav>
+      <a class="active" href="User-Dashboard.html">Home</a>
+      <a  href="my-requests.html">My Requests</a>
+    </nav>
+
+    <div class="logout">
+        <button onclick="window.location.href='LogIn.html'">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+        </button>
+    </div>
+  </header>
 
 <main class="add-request-page">
   <section class="add-request-form-section">
@@ -135,7 +140,7 @@
       <h4>Quick Links</h4>
       <ul class="footer-links">
         <li><a href="#">Sitemap</a></li>
-        <li><a href="#">Dashboard</a></li>
+        <li><a href="User-Dashboard.html">Dashboard</a></li>
       </ul>
     </div>
 
@@ -174,6 +179,14 @@
       errorMessage.style.display = "block";
       return;
     }
+
+const today = new Date().toISOString().split("T")[0];
+
+if (dateInput.value < today) {
+  errorMessage.textContent = "Choose today or a future date";
+  errorMessage.style.display = "block";
+  return;
+}
 
     errorMessage.style.display = "none";
 

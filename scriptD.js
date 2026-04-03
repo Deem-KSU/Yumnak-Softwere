@@ -1,208 +1,210 @@
-const signupForm = document.getElementById("signupForm")
-const loginForm = document.getElementById("loginForm")
+const signupForm = document.getElementById("signupForm");
+const loginForm = document.getElementById("loginForm");
+
+function showError(elementId, message) {
+  document.getElementById(elementId).textContent = message;
+}
+
+function clearError(elementId) {
+  document.getElementById(elementId).textContent = "";
+}
+
+function clearMultipleErrors(errorIds) {
+  errorIds.forEach(id => clearError(id));
+}
+
+function getAge(dateString) {
+  const birthDate = new Date(dateString);
+  const today = new Date();
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  return age;
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidPassword(password) {
+  return /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password);
+}
 
 if (signupForm) {
-    const signupUsername = document.getElementById("username")
-    const signupEmail = document.getElementById("email")
-    const signupPhone = document.getElementById("phone")
-    const signupDob = document.getElementById("dob")
-    const signupPassword = document.getElementById("password")
-    const signupConfirmPassword = document.getElementById("confirmPassword")
+  const username = document.getElementById("username");
+  const email = document.getElementById("email");
+  const phone = document.getElementById("phone");
+  const dob = document.getElementById("dob");
+  const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("confirmPassword");
 
-    const signupUsernameError = document.getElementById("usernameError")
-    const signupEmailError = document.getElementById("emailError")
-    const signupPhoneError = document.getElementById("phoneError")
-    const signupDobError = document.getElementById("dobError")
-    const signupPasswordError = document.getElementById("passwordError")
-    const signupConfirmPasswordError = document.getElementById("confirmPasswordError")
+  const formError = document.getElementById("formError");
+  const formSuccess = document.getElementById("formSuccess");
 
-    const signupFormError = document.getElementById("formError")
-    const signupFormSuccess = document.getElementById("formSuccess")
+  signupForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    const signupTogglePassword = document.getElementById("togglePassword")
-    const signupToggleConfirmPassword = document.getElementById("toggleConfirmPassword")
+    clearMultipleErrors([
+      "usernameError",
+      "emailError",
+      "phoneError",
+      "dobError",
+      "passwordError",
+      "confirmPasswordError"
+    ]);
 
-    function clearSignupMessages() {
-        signupUsernameError.textContent = ""
-        signupEmailError.textContent = ""
-        signupPhoneError.textContent = ""
-        signupDobError.textContent = ""
-        signupPasswordError.textContent = ""
-        signupConfirmPasswordError.textContent = ""
-        signupFormError.textContent = ""
-        signupFormSuccess.textContent = ""
-        signupFormError.style.display = "none"
-        signupFormSuccess.style.display = "none"
+    formError.textContent = "";
+    formSuccess.textContent = "";
+    formError.style.display = "none";
+    formSuccess.style.display = "none";
+
+    let isValid = true;
+
+    if (username.value.trim() === "") {
+      showError("usernameError", "Username is required");
+      isValid = false;
     }
 
-    function showSignupFormError(message) {
-        signupFormError.textContent = message
-        signupFormError.style.display = "block"
-        signupFormSuccess.style.display = "none"
+    if (email.value.trim() === "") {
+      showError("emailError", "Email is required");
+      isValid = false;
+    } else if (!isValidEmail(email.value.trim())) {
+      showError("emailError", "Please enter a valid email address");
+      isValid = false;
     }
 
-    function showSignupFormSuccess(message) {
-        signupFormSuccess.textContent = message
-        signupFormSuccess.style.display = "block"
-        signupFormError.style.display = "none"
+    if (phone.value.trim() === "") {
+  showError("phoneError", "Phone number is required");
+  isValid = false;
+} else {
+  const phoneValue = phone.value.trim();
+
+  const phoneRegex = /^05\d{8}$/;
+
+  if (!phoneRegex.test(phoneValue)) {
+    showError("phoneError", "Phone must start with 05 and be 10 digits");
+    isValid = false;
+  }
+}
+
+    if (dob.value === "") {
+      showError("dobError", "Date of birth is required");
+      isValid = false;
+    } else if (getAge(dob.value) < 18) {
+      showError("dobError", "You must be at least 18 years old");
+      isValid = false;
     }
 
-    function getAge(dateString) {
-        const birthDate = new Date(dateString)
-        const today = new Date()
-        let age = today.getFullYear() - birthDate.getFullYear()
-        const monthDifference = today.getMonth() - birthDate.getMonth()
-
-        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-            age--
-        }
-
-        return age
+    if (password.value.trim() === "") {
+      showError("passwordError", "Password is required");
+      isValid = false;
+    } else if (!isValidPassword(password.value)) {
+      showError(
+        "passwordError",
+        "Password must be at least 8 characters long and include an uppercase letter, a number, and a special character"
+      );
+      isValid = false;
     }
 
-    signupForm.addEventListener("submit", function (e) {
-        e.preventDefault()
-        clearSignupMessages()
-
-        let isValid = true
-
-        if (signupUsername.value.trim() === "") {
-            signupUsernameError.textContent = "Username is required"
-            isValid = false
-        }
-
-        if (signupEmail.value.trim() === "") {
-            signupEmailError.textContent = "Email is required"
-            isValid = false
-        }
-
-        if (signupPhone.value.trim() === "") {
-            signupPhoneError.textContent = "Phone number is required"
-            isValid = false
-        }
-
-        if (signupDob.value === "") {
-            signupDobError.textContent = "Date of birth is required"
-            isValid = false
-        } else if (getAge(signupDob.value) < 18) {
-            signupDobError.textContent = "You must be at least 18 years old"
-            isValid = false
-        }
-
-        if (signupPassword.value === "") {
-            signupPasswordError.textContent = "Password is required"
-            isValid = false
-        } else {
-            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/
-            if (!passwordRegex.test(signupPassword.value)) {
-                signupPasswordError.textContent = "Password must be at least 8 characters long and include an uppercase letter, a number, and a special character"
-                isValid = false
-            }
-        }
-
-        if (signupConfirmPassword.value === "") {
-            signupConfirmPasswordError.textContent = "Confirm password is required"
-            isValid = false
-        } else if (signupPassword.value !== signupConfirmPassword.value) {
-            signupConfirmPasswordError.textContent = "Passwords do not match"
-            isValid = false
-        }
-
-        if (!isValid) {
-            showSignupFormError("Please fix the errors below")
-            return
-        }
-
-        showSignupFormSuccess("Account created successfully!")
-        signupForm.reset()
-    })
-
-    if (signupTogglePassword) {
-        signupTogglePassword.addEventListener("click", function () {
-            if (signupPassword.type === "password") {
-                signupPassword.type = "text"
-                this.classList.remove("fa-eye")
-                this.classList.add("fa-eye-slash")
-            } else {
-                signupPassword.type = "password"
-                this.classList.remove("fa-eye-slash")
-                this.classList.add("fa-eye")
-            }
-        })
+    if (confirmPassword.value.trim() === "") {
+      showError("confirmPasswordError", "Confirm password is required");
+      isValid = false;
+    } else if (password.value !== confirmPassword.value) {
+      showError("confirmPasswordError", "Passwords do not match");
+      isValid = false;
     }
 
-    if (signupToggleConfirmPassword) {
-        signupToggleConfirmPassword.addEventListener("click", function () {
-            if (signupConfirmPassword.type === "password") {
-                signupConfirmPassword.type = "text"
-                this.classList.remove("fa-eye")
-                this.classList.add("fa-eye-slash")
-            } else {
-                signupConfirmPassword.type = "password"
-                this.classList.remove("fa-eye-slash")
-                this.classList.add("fa-eye")
-            }
-        })
+    if (!isValid) {
+      formError.textContent = "Please fix the errors below";
+      formError.style.display = "block";
+      return;
     }
+
+    formSuccess.textContent = "Account created successfully!";
+    formSuccess.style.display = "block";
+
+    // الانتقال للصفحة الثانية بعد النجاح
+    window.location.href = "LogIn.html";
+  });
+
+  const togglePassword = document.getElementById("togglePassword");
+  const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+
+  if (togglePassword) {
+    togglePassword.addEventListener("click", function () {
+      password.type = password.type === "password" ? "text" : "password";
+      this.classList.toggle("fa-eye");
+      this.classList.toggle("fa-eye-slash");
+    });
+  }
+
+  if (toggleConfirmPassword) {
+    toggleConfirmPassword.addEventListener("click", function () {
+      confirmPassword.type = confirmPassword.type === "password" ? "text" : "password";
+      this.classList.toggle("fa-eye");
+      this.classList.toggle("fa-eye-slash");
+    });
+  }
 }
 
 if (loginForm) {
-    const loginUsername = document.getElementById("loginUsername")
-    const loginPassword = document.getElementById("loginPassword")
+  const loginUsername = document.getElementById("loginUsername");
+  const loginPassword = document.getElementById("loginPassword");
+  const loginError = document.getElementById("loginError");
 
-    const loginUsernameError = document.getElementById("loginUsernameError")
-    const loginPasswordError = document.getElementById("loginPasswordError")
-    const loginError = document.getElementById("loginError")
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    const loginTogglePassword = document.getElementById("loginTogglePassword")
+    clearMultipleErrors(["loginUsernameError", "loginPasswordError"]);
+    loginError.textContent = "";
+    loginError.style.display = "none";
 
-    function clearLoginErrors() {
-        loginUsernameError.textContent = ""
-        loginPasswordError.textContent = ""
-        loginError.textContent = ""
-        loginError.style.display = "none"
+    let isValid = true;
+
+    if (loginUsername.value.trim() === "") {
+      showError("loginUsernameError", "Username is required");
+      isValid = false;
     }
 
-    function showLoginError(message) {
-        loginError.textContent = message
-        loginError.style.display = "block"
+    if (loginPassword.value.trim() === "") {
+      showError("loginPasswordError", "Password is required");
+      isValid = false;
     }
 
-    loginForm.addEventListener("submit", function (e) {
-        e.preventDefault()
-        clearLoginErrors()
-
-        let valid = true
-
-        if (loginUsername.value.trim() === "") {
-            loginUsernameError.textContent = "Username is required"
-            valid = false
-        }
-
-        if (loginPassword.value.trim() === "") {
-            loginPasswordError.textContent = "Password is required"
-            valid = false
-        }
-
-        if (!valid) {
-            showLoginError("Please fill in all required fields")
-            return
-        }
-
-        showLoginError("Invalid username or password")
-    })
-
-    if (loginTogglePassword) {
-        loginTogglePassword.addEventListener("click", function () {
-            if (loginPassword.type === "password") {
-                loginPassword.type = "text"
-                this.classList.remove("fa-eye")
-                this.classList.add("fa-eye-slash")
-            } else {
-                loginPassword.type = "password"
-                this.classList.remove("fa-eye-slash")
-                this.classList.add("fa-eye")
-            }
-        })
+    if (!isValid) {
+      loginError.textContent = "Please fill in all required fields";
+      loginError.style.display = "block";
+      return;
     }
+
+    // شكليًا فقط: إذا عبا الحقول ينتقل
+loginForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  if (loginUsername.value !== "" && loginPassword.value !== "") {
+    window.location.href = "User-Dashboard.html";
+  }
+});
+
+});
+
+  const loginTogglePassword = document.getElementById("loginTogglePassword");
+
+  if (loginTogglePassword) {
+    loginTogglePassword.addEventListener("click", function () {
+      loginPassword.type = loginPassword.type === "password" ? "text" : "password";
+      this.classList.toggle("fa-eye");
+      this.classList.toggle("fa-eye-slash");
+    });
+  }
+}
+
+
+function goToAddRequest() {
+  window.location.href = "Airport_Selection.html";
 }
