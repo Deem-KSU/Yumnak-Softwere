@@ -47,10 +47,10 @@
           <div class="add-request-input-with-icon">
             <i class="fas fa-plane-departure"></i>
         <select id="airport">
-         <option value="King Khalid International Airport" selected>
+         <option value="King Khalid International Airport" >
                King Khalid International Airport
         </option>
-        <option value="King Abdulaziz International Airport">
+        <option value="King Abdulaziz International Airport" selected>
               King Abdulaziz International Airport
        </option>
        <option value="King Fahd International Airport">
@@ -72,8 +72,19 @@
           <label for="gate">Entrance Gate <span>*</span></label>
           <div class="add-request-input-with-icon">
             <i class="fas fa-door-open"></i>
-            <input type="text" id="gate" value="Terminal 2 - Gate 3" placeholder="Enter terminal and gate (e.g. Terminal 2 - Gate 3)">
-          </div>
+        <select id="gate">
+          <option value="" selected disabled>Select entrance gate</option>
+          <option>A1</option>
+          <option>A5</option>
+          <option>A10</option>
+          <option>B3</option>
+          <option>B12</option>
+          <option>C4</option>
+          <option selected>C8</option>
+          <option>C15</option>
+          <option>D2</option>
+          <option>D5</option>
+       </select>          </div>
         </div>
 
         <div class="add-request-field">
@@ -82,8 +93,8 @@
             <i class="fas fa-hands-helping"></i>
             <select id="type">
               <option value="" disabled>Select assistance type</option>
-              <option value="Hearing Assistance">Hearing Assistance</option>
-              <option value="Visual Assistance" selected>Visual Assistance</option>
+              <option value="Hearing Assistance" selected>Hearing Assistance</option>
+              <option value="Visual Assistance">Visual Assistance</option>
               <option value="Mobility Assistance">Mobility Assistance</option>
               <option value="Cognitive Assistance">Cognitive Assistance</option>
               <option value="Other">Other</option>
@@ -96,7 +107,7 @@
             <label for="date">Preferred Date <span>*</span></label>
             <div class="add-request-input-with-icon">
               <i class="fas fa-calendar-alt"></i>
-              <input type="date" id="date" value="2026-03-28">
+              <input type="date" id="date" value="2027-03-25">
             </div>
           </div>
 
@@ -104,7 +115,7 @@
             <label for="time">Preferred Time <span>*</span></label>
             <div class="add-request-input-with-icon">
               <i class="fas fa-clock"></i>
-              <input type="time" id="time" value="14:30">
+              <input type="time" id="time" value="16:45">
             </div>
           </div>
         </div>
@@ -113,7 +124,7 @@
           <label for="note">Extra Note(Optional)</label>
           <div class="add-request-textarea-with-icon">
             <i class="fas fa-pen"></i>
-            <textarea id="note" rows="5" placeholder="Add any additional details to help us assist you...">I may need help reaching the departure area.</textarea>
+            <textarea id="note" rows="5" placeholder="Add any additional details to help us assist you...">I prefer communication using sign language.</textarea>
           </div>
         </div>
 
@@ -186,7 +197,7 @@
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const gate = gateInput.value.trim();
+    const gate = gateInput.value;
     const type = typeInput.value;
     const date = dateInput.value;
     const time = timeInput.value;
@@ -195,7 +206,13 @@
       errorMessage.style.display = "block";
       return;
     }
+     const today = new Date().toISOString().split("T")[0];
 
+if (dateInput.value < today) {
+  errorMessage.textContent = "Choose today or a future date";
+  errorMessage.style.display = "block";
+  return;
+}
     const confirmUpdate = confirm("Are you sure you want to save these changes?");
 
     if (!confirmUpdate) {
