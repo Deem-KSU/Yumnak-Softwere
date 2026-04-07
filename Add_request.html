@@ -71,15 +71,17 @@
 
         <div class="add-request-field">
           <label for="type">Assistance Type <span>*</span></label>
+          <small>Hold Ctrl (or Command) to select multiple</small>
           <div class="add-request-input-with-icon">
             <i class="fas fa-hands-helping"></i>
-           <select id="type">
-              <option value="" selected disabled>Select assistance type</option>
-              <option value="Hearing Assistance">Hearing Assistance</option>
-              <option value="Visual Assistance">Visual Assistance</option>
-              <option value="Mobility Assistance">Mobility Assistance</option>
-              <option value="Cognitive Assistance">Cognitive Assistance</option>
-              <option value="Other">Other</option>
+            
+          <select id="type" multiple size="1">
+            <option value="Wheelchair Assistance">Wheelchair Assistance</option>
+            <option value="Mobility Assistance">Mobility Assistance</option>
+           <option value="Visual Impairment Assistance">Visual Impairment Assistance</option>
+           <option value="Hearing Impairment Assistance">Hearing Impairment Assistance</option>
+           <option value="Cognitive Assistance">Cognitive Assistance</option>
+           <option value="Other">Other</option>
           </select>
           </div>
         </div>
